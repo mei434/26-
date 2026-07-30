@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자주 묻는 질문(FAQ) - 2026 청년일자리도약장려금</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+    --brand-orange: #f97316;
+    --brand-deep-orange: #c2410c;
+    --brand-light-orange: #fff7ed;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fefefe;
+    letter-spacing: -0.03em;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    box-shadow: 0 15px 30px -10px rgba(234, 88, 12, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.keep-all { word-break: keep-all; }
+
+.check-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+.check-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--brand-orange);
+}
+
+.highlight-red {
+    color: #ef4444;
+    font-weight: 800;
+}
+
+.process-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.step-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #fed7aa;
+    flex: 1;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.arrow-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fdba74;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+    .process-container { flex-direction: column; }
+    .arrow-box { transform: rotate(90deg); margin: 0.5rem 0; }
+}
+
+.page-view { display: none; }
+.page-view.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 1rem; border-bottom: 1px solid #f1f5f9; text-align: center; }
+th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
+
+.faq-header-bg {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    position: relative;
+    overflow: hidden;
+}
+.faq-header-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.faq-card {
+    background: white;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.faq-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    border-color: #fdba74;
+}
+.faq-card.active {
+    border-color: #f97316;
+    box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.1), 0 2px 4px -2px rgba(249, 115, 22, 0.1);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    background: none;
+    border: none;
+}
+
+.q-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: #fff7ed;
+    color: #ea580c;
+    border-radius: 50%;
+    font-weight: 800;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.faq-card:hover .q-badge {
+    background-color: #ffedd5;
+    color: #c2410c;
+}
+
+.faq-card.active .q-badge {
+    background-color: #ea580c;
+    color: white;
+}
+
+.toggle-icon {
+    margin-left: auto;
+    color: #cbd5e1;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.faq-card.active .toggle-icon {
+    transform: rotate(180deg);
+    color: #ea580c;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+    opacity: 0;
+    background-color: #fafaf9;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.faq-card.active .faq-answer {
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in;
+}
+
+.answer-content {
+    padding: 1.5rem 1.5rem 2rem 4.75rem;
+    border-top: 1px dashed #e2e8f0;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+@media (max-width: 640px) {
+    .answer-content { padding: 1.25rem; }
+    .q-badge { width: 1.75rem; height: 1.75rem; font-size: 0.8rem; margin-right: 0.75rem; }
+    .faq-question { padding: 1.25rem; }
+}
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <div id="faqPage" class="page-view active bg-slate-50">
+        <header class="faq-header-bg text-white py-16 px-4">
+            <div class="max-w-3xl mx-auto text-center relative z-10">
+                <a href="index.html" class="mb-6 inline-flex items-center text-orange-100 hover:text-white transition-colors bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+                    <i class="fas fa-arrow-left mr-2"></i>메인 페이지로 이동
+                </a>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">자주 묻는 질문</h1>
+                <p class="text-orange-100/90 text-lg">궁금하신 내용을 검색해보세요. 가장 많이 묻는 질문들을 모았습니다.</p>
+            </div>
+        </header>
+
+        <main class="max-w-3xl mx-auto px-4 py-12 -mt-8 relative z-20">
+
+            <!-- Q1 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">참여신청은 언제까지 할 수 있나요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+
+              <div class="faq-answer">
+                <div class="answer-content">
+                  <div class="space-y-3 leading-relaxed">
+                      <p><span class="highlight-red">2026년 연내 신청 가능합니다.</span><br>
+                         다만, 예산 소진 시 조기 마감될 수 있으므로 가급적 빠른 신청을 권장드립니다.
+                      </p>
+
+                      <p>
+                        참여기업 신청일 기준 3개월 전에 채용된 청년부터 지원 대상자로 인정되며,
+                        신청 이후 채용이 없더라도 불이익은 없습니다.
+                      </p>
+
+                      <p>
+                        신청이 지연될 경우 연초 채용자가 지원 대상에서 제외될 수 있으므로,
+                        채용 계획이 있다면 <span class="highlight-red">참여기업 신청을 먼저</span> 진행해 주시기 바랍니다.
+                      </p>
+
+                      <div class="bg-orange-50 p-4 rounded-lg text-sm italic border border-orange-100 mt-2">
+                        (예)<br>
+                        2026. 6. 1 참여기업 신청 시,<br>
+                        3개월 이전인 2026. 3. 1 이후 채용자부터 인정 가능<br>
+                        2026. 2. 14 채용자 ❌ / 2026. 3. 20 채용자 ⭕
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">참여기업 신청 전에 이미 청년을 채용한 경우에도 지원이 가능한가요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+
+              <div class="faq-answer">
+                <div class="answer-content">
+                  <div class="space-y-3 leading-relaxed">
+                      <p>
+                        가능합니다.<br>
+                        다만, <span class="highlight-red">청년 채용일로부터 3개월 이내</span>에
+                        참여기업 신청을 완료한 경우에 한해 지원이 가능합니다.
+                      </p>
+
+                      <p>
+                        기간제 근로자로 먼저 채용한 경우에도,
+                        기간제 채용일 기준 3개월 이내 신청 시 인정됩니다.
+                      </p>
+
+                      <div class="bg-orange-50 p-4 rounded-lg text-sm italic border border-orange-100 mt-2">
+                        (예)<br>
+                        2026. 6. 1 참여기업 신청 시,<br>
+                        2026. 3. 1 이후 채용자 인정 가능
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">현재 채용자가 없어도 참여기업 신청이 가능한가요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <div class="space-y-3 leading-relaxed">
+                      <p>
+                        네, 가능합니다.<br>
+                        참여기업 신청 시 채용자가 없어도 신청이 가능하며,
+                        연내 채용이 이루어지지 않더라도 불이익은 없습니다.
+                      </p>
+
+                      <p>
+                        다만, 참여기업 신청이 선행되어야 채용자 등록이 가능하므로
+                        향후 채용 계획이 있다면 사전 신청을 권장드립니다.
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">사업 참여 시 비용이 발생하나요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <div class="space-y-3 leading-relaxed">
+                      <p>
+                        본 사업은 정부지원사업으로, 기업이 부담해야 할 비용은 전혀 없습니다.<br>
+                        참여기업 신청, 채용자 등록, 지원금 신청·수령 전 과정에서 수수료나 대행비 등 어떠한 비용도 발생하지 않습니다.
+                      </p>
+                      <p>
+                        운영기관 역시 정부지원금으로 운영되며,
+                        유료 컨설팅·대행을 요구하거나 비용을 청구하는 경우 본 사업과 무관하오니 각별히 유의해 주시기 바랍니다.
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">5인 미만 사업장은 참여가 불가한가요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <div class="space-y-4 leading-relaxed">
+                      <p>원칙적으로 대표 외 1인 이상 5인 미만 사업장의 경우 아래 요건 중 1가지 이상에 해당하여야 신청이 가능합니다.</p>
+
+                      <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-2">
+                        <ul class="text-sm space-y-1">
+                          <li>▪ 지식서비스 산업 관련 업종</li>
+                          <li>▪ 문화콘텐츠산업 관련 업종</li>
+                          <li>▪ 신재생에너지 산업 관련 업종</li>
+                          <li>▪ 지역주력산업</li>
+                          <li class="text-slate-500 mt-2">→ 고용보험 업종코드 기준 (근로복지공단 홈페이지 확인)</li>
+                          <li class="text-blue-600 font-medium">
+                            → 전화(02-6953-2313 / 02-6953-4203)로 기업명·사업자번호 전달 시 확인 가능
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-2">
+                        <p class="font-bold">▪ 청년 창업 기업</p>
+                        <p class="text-sm">대표자 만 39세 이하 & 업력 7년 이하</p>
+                      </div>
+
+                      <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-2">
+                        <p class="font-bold">▪ 미래 유망기업</p>
+                        <p class="text-sm">국가 인증 보유 기업 (인증서 제출)</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">본사와 지사가 따로 있는 경우에는 어떻게 신청하나요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <div class="space-y-3 leading-relaxed">
+                      <p>원칙적으로 사업참여 신청은 '사업 단위' 기준으로 본사에서 단독 진행합니다.</p>
+                      <p>
+                        다만, 본사와 지사가 분리되어 있고 고용보험 관계도 각각 분리된 경우에는
+                        사업장 단위로 각각 신청하거나 관련사업장으로 등록할 수 있습니다.
+                      </p>
+                      <p>수도권·비수도권 여부는 본사 사업장 소재지를 기준으로 판단합니다.</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">계약직으로 채용한 경우에도 지원이 가능한가요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <p class="leading-relaxed">
+                      계약직으로 채용하였더라도 계약기간 3개월 이내에 정규직으로 전환되는 경우에는 지원이 가능합니다.
+                      이때 지원금 산정 기간은 정규직 전환일을 기준으로 산정됩니다.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">작년까지 운영되던 제조업 기업 대상의 유형2는 올해도 적용되나요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <p class="leading-relaxed">
+                      2026년 사업부터는 지침 개정으로 유형1·유형2 구분이 폐지되었습니다.
+                      현재는 수도권과 비수도권 기준으로 사업이 구분되어 운영되며,
+                      이에 따라 수도권 소재 기업의 경우 청년장기근속인센티브는 지급되지 않습니다.
+                      또한 청년 지원 요건으로 모든 업종의 기업을 대상으로 취업애로유형 기준이 적용됩니다.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">방송통신대, 사이버대, 야간대학, 학점은행제, 대학원 재학생도 지원이 가능한가요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <p class="leading-relaxed">
+                      해당 교육과정에 재학 중이더라도 지원 요건과 취업애로유형에 해당한다면 지원이 가능합니다.
+                      다만 취업애로유형 중 일부 유형은 적용되지 않으므로 개별 요건 확인이 필요합니다.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">사업 운영 기간이 1년 미만인 경우 기준 피보험자 수는 어떻게 산정하나요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <p class="leading-relaxed">
+                      고용보험 신규 성립일이 속한 월부터 참여신청 직전 월까지의 기간 동안
+                      평균 피보험자 수를 기준으로 산정합니다.
+                      단, 고용보험 신규 성립 월에는 사업 참여 신청이 불가합니다.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">참여신청 전에 이미 청년을 채용한 경우에도 지원이 가능한가요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <p class="leading-relaxed">
+                      참여기업 신청 이전에 청년을 채용한 경우에도,
+                      채용일로부터 3개월 이내에 참여신청을 완료한 경우에는 지원이 가능합니다.
+                      기간제 근로자로 채용한 경우에는 기간제 채용일을 기준으로
+                      3개월 이내 신청해야 합니다.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">고용조정 이직이란 무엇을 의미하나요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <p class="leading-relaxed">
+                      고용조정 이직이란 권고사직 등 기업의 인위적 감원으로 인한 이직을 의미하며,
+                      고용보험 상실코드 23-①~⑧ 및 26-③에 해당하는 경우를 말합니다.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="faq-card">
+              <button onclick="toggleFaq(this)" class="faq-question">
+                <span class="q-badge">Q</span>
+                <span class="font-bold text-slate-800 text-lg flex-1">고용조정 이직 이력이 있으면 참여가 제한되나요?</span>
+                <i class="fas fa-chevron-down toggle-icon text-xl"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="answer-content">
+                    <p class="leading-relaxed">
+                      고용조정 이직 이력이 있더라도 참여기업신청은 가능합니다.
+                      다만 권고사직 발생일로부터 3개월 이내 채용자는 지원이 불가하며,
+                      3개월 이후 채용자는 지원이 가능합니다.
+                      이는 신규 채용 청년뿐 아니라 기존 근로자에 대한
+                      고용조정 이직도 동일하게 적용됩니다.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 문의 안내 -->
+            <div class="text-center mt-10 p-8 bg-white rounded-3xl border border-orange-100 shadow-sm">
+                <p class="text-slate-700 font-semibold mb-2">더 궁금하신 점이 있으신가요?</p>
+                <p class="text-orange-600 font-black text-xl mb-1">
+                    <a href="mailto:jump_work@kfo.or.kr" class="hover:underline">jump_work@kfo.or.kr</a>
+                </p>
+                <p class="text-orange-600 font-black text-xl">
+                    <a href="tel:0269532313" class="hover:underline">02-6953-2313</a>
+                    <span class="text-slate-300 mx-1">|</span>
+                    <a href="tel:0269534203" class="hover:underline">02-6953-4203</a>
+                </p>
+                <p class="text-sm text-slate-400 mt-2">평일 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00)</p>
+            </div>
+
+        </main>
+
+        <footer class="pt-8 pb-6 px-6 text-center" style="background-color: rgb(188, 186, 186);">
+            <div class="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-4">
+                <div class="bg-white rounded-xl px-5 py-3 shadow-sm flex items-center justify-center">
+                    <img src="images/moel-logo.png" alt="고용노동부" class="h-8 md:h-10 object-contain">
+                </div>
+                <img src="images/footer-logo.png" alt="하이테커 강남지사 · 이노비즈협회" class="h-14 md:h-16 object-contain">
+            </div>
+            <p class="font-bold text-lg mb-2 text-slate-700">(주)하이테커 강남지사</p>
+            <p class="text-slate-600 text-sm">자주 묻는 질문(FAQ) 안내 페이지</p>
+            <p class="text-slate-600 text-sm mt-1">전화 : 02-6953-2313 | 02-6953-4203</p>
+            <p class="text-slate-600 text-sm">이메일 : jump_work@kfo.or.kr</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleFaq(button) {
+            const item = button.closest('.faq-card');
+            const isActive = item.classList.contains('active');
+
+            // 다른 열린 항목 닫기
+            document.querySelectorAll('.faq-card').forEach(i => {
+                if (i !== item) i.classList.remove('active');
+            });
+
+            // 현재 항목 토글
+            if (!isActive) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
