@@ -56,6 +56,15 @@ h3{margin:0 0 6px;font-size:17px;color:var(--navy);font-weight:800}
 .btn-main{background:var(--blue);color:#fff;font-size:17px;padding:15px 30px}
 .btn-ghost{background:#fff;color:var(--navy);border-color:var(--line)}
 .btn:hover{filter:brightness(.95)}
+.must{background:#FFF7ED;border:2px solid #F97316;border-radius:14px;padding:20px 18px;margin:18px 0;text-align:center}
+.must .k{margin:0;color:#C2410C;font-weight:800;font-size:13px}
+.must .big{margin:6px 0;font-size:24px;font-weight:900;color:#C2410C}
+.must p{margin:0;font-size:15px;color:#1F2937}
+.must small{display:block;margin-top:8px;color:var(--muted);font-size:12px}
+.soft-note{background:var(--blue-soft);border-radius:12px;padding:14px 16px;margin:18px 0 0;font-size:14px;color:var(--ink);text-align:center;line-height:1.7}
+.soft-note .hl{color:var(--navy)}
+.must-inline{background:#FFF7ED;border:2px solid #F97316;border-radius:10px;padding:12px 14px;margin:6px 0 12px;font-size:15px;color:#1F2937}
+.must-inline b{color:#C2410C}
 .tip{background:var(--red-soft);border-radius:10px;padding:12px 14px;font-size:13px;color:#991B1B;margin-top:12px}
 .tip b{color:var(--red)}
 .note{background:var(--bg);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--body);margin-top:12px}
@@ -104,6 +113,8 @@ footer b{color:var(--navy)}
     <a class="ov" href="#step2"><b>STEP 2</b><span>고용24 로그인</span><small>기업회원 로그인</small></a>
     <a class="ov" href="#step3"><b>STEP 3</b><span>참여신청서 작성</span><small>입력 · 첨부 · 동의</small></a>
   </nav>
+
+  <div class="soft-note">💡 신청서의 <strong>‘담당 운영기관’</strong>은 <strong class="hl">[하이테커 강남지사]</strong>로 선택해 주세요. <a href="#op">입력 방법 보기</a></div>
 
   <!-- STEP 1 -->
   <section id="step1">
@@ -172,9 +183,9 @@ footer b{color:var(--navy)}
     <p class="sub">신청서는 한 페이지로 이어져 있습니다. 아래 순서대로 입력해 주세요.</p>
 
     <div class="step">
-      <h3>① 운영기관 선택 · 대표 사업장 등록</h3>
+      <h3 id="op">① 운영기관 선택 · 대표 사업장 등록</h3>
+      <div class="must-inline">담당 운영기관 칸 옆 <b>[운영기관 검색]</b> 클릭 → <b>‘하이테커 강남지사’</b> 선택 <span style="color:var(--muted);font-size:13px">(필수)</span></div>
       <ul class="check">
-        <li>담당 운영기관: <strong>[운영기관 검색] → ‘하이테커 강남지사’ 선택</strong></li>
         <li>고용보험 사업장관리번호: <strong>[관리번호 검색]</strong> 클릭 → 조회된 관리번호 클릭</li>
         <li>검색창의 ‘비수도권 산단입주기업’은 <em>체크하지 않습니다</em> (강남구는 수도권)</li>
         <li>사업참여유형: 본사만 있으면 <strong>사업단위</strong> · 지사를 따로 신청·관리하려면 <strong>사업장단위</strong></li>
