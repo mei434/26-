@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고용24 참여신청 가이드 | 2026 청년일자리도약장려금</title>
+<meta name="description" content="2026 청년일자리도약장려금 고용24 참여신청 방법과 [붙임1] 신청서식 다운로드 - 하이테커 강남지사">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --navy:#1E3A8A; --blue:#2563EB; --blue-soft:#EFF4FF; --red:#DC2626; --red-soft:#FEF2F2;
+  --ink:#111827; --body:#374151; --muted:#6B7280; --line:#E5E7EB; --bg:#F3F4F6; --card:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--body);font-family:Pretendard,'맑은 고딕','Malgun Gothic','Apple SD Gothic Neo',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:var(--blue)}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:44px 0 36px}
+.hero .org{margin:0 0 6px;font-size:14px;opacity:.85}
+.hero h1{margin:0;font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.3}
+.hero p.lead{margin:12px 0 0;font-size:15px;opacity:.9}
+
+/* step overview */
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:-22px 0 0;position:relative}
+.ov{background:var(--card);border-radius:12px;padding:16px 14px;box-shadow:0 4px 14px rgba(17,24,39,.08);text-decoration:none;color:inherit;display:block;border:2px solid transparent;transition:border-color .15s}
+.ov:hover{border-color:var(--blue)}
+.ov b{display:block;color:var(--blue);font-size:12px;letter-spacing:.04em}
+.ov span{display:block;color:var(--ink);font-weight:800;font-size:15px;margin-top:2px}
+.ov small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+section{background:var(--card);border-radius:14px;padding:28px 24px;margin:18px 0}
+.sec-label{display:inline-block;background:var(--blue);color:#fff;font-size:12px;font-weight:800;padding:3px 10px;border-radius:99px;letter-spacing:.04em}
+h2{margin:10px 0 6px;font-size:22px;color:var(--ink);font-weight:800}
+h3{margin:0 0 6px;font-size:17px;color:var(--navy);font-weight:800}
+.sub{margin:0 0 18px;color:var(--muted);font-size:14px}
+
+/* docs */
+.doc{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.doc .num{flex:0 0 30px;height:30px;border-radius:50%;background:var(--blue-soft);color:var(--navy);font-weight:900;display:flex;align-items:center;justify-content:center}
+.doc .body{flex:1;min-width:0}
+.doc .t{font-weight:800;color:var(--ink);font-size:15px}
+.doc .d{font-size:13px;color:var(--muted);margin-top:2px}
+.doc.key{border:2px solid var(--blue);background:#FAFCFF}
+.badge{display:inline-block;font-size:11px;font-weight:800;color:var(--red);background:var(--red-soft);padding:1px 8px;border-radius:99px;margin-left:6px;vertical-align:2px}
+.forms{margin:10px 0 0;padding:0;list-style:none;font-size:13px;color:var(--body)}
+.forms li{padding-left:14px;position:relative}
+.forms li:before{content:"·";position:absolute;left:4px;font-weight:900}
+.dl{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 16px;border-radius:10px;font-weight:800;font-size:14px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-hwp{background:#0B67C2;color:#fff}
+.btn-doc{background:#2B579A;color:#fff}
+.btn-pdf{background:#fff;color:var(--red);border-color:#FCA5A5}
+.btn-main{background:var(--blue);color:#fff;font-size:17px;padding:15px 30px}
+.btn-ghost{background:#fff;color:var(--navy);border-color:var(--line)}
+.btn:hover{filter:brightness(.95)}
+.tip{background:var(--red-soft);border-radius:10px;padding:12px 14px;font-size:13px;color:#991B1B;margin-top:12px}
+.tip b{color:var(--red)}
+.note{background:var(--bg);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--body);margin-top:12px}
+
+/* steps */
+.step{border-top:1px solid var(--line);padding-top:22px;margin-top:22px}
+.step:first-of-type{border-top:0;padding-top:0;margin-top:6px}
+.check{margin:8px 0 12px;padding:0;list-style:none}
+.check li{position:relative;padding:3px 0 3px 26px;font-size:14px}
+.check li:before{content:"✓";position:absolute;left:4px;top:3px;color:var(--blue);font-weight:900}
+.check li strong{color:var(--ink)}
+.check li em{font-style:normal;color:var(--red);font-weight:700}
+.shot{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.shot img{display:block;width:100%;height:auto}
+.shot-cap{font-size:12px;color:var(--muted);margin-top:6px;text-align:right}
+
+.cta{text-align:center}
+.cta p{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+
+footer{text-align:center;padding:10px 0 40px;font-size:13px;color:var(--muted)}
+footer b{color:var(--navy)}
+@media (max-width:600px){
+  .overview{gap:6px;margin-top:-18px}
+  .ov{padding:12px 8px;text-align:center}
+  .ov span{font-size:13px}
+  .ov small{display:none}
+  section{padding:22px 16px}
+  .btn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="org">고용노동부 지정 위탁운영기관 · <strong>(주)하이테커 강남지사</strong></p>
+    <h1>2026 청년일자리도약장려금<br>고용24 참여신청 가이드</h1>
+    <p class="lead">서류 준비부터 고용24 신청서 작성까지, 순서대로 따라오시면 됩니다.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="overview" aria-label="신청 단계">
+    <a class="ov" href="#step1"><b>STEP 1</b><span>제출 서류 준비</span><small>[붙임1] 서식 다운로드</small></a>
+    <a class="ov" href="#step2"><b>STEP 2</b><span>고용24 로그인</span><small>기업회원 로그인</small></a>
+    <a class="ov" href="#step3"><b>STEP 3</b><span>참여신청서 작성</span><small>입력 · 첨부 · 동의</small></a>
+  </nav>
+
+  <!-- STEP 1 -->
+  <section id="step1">
+    <span class="sec-label">STEP 1</span>
+    <h2>제출 서류 준비</h2>
+    <p class="sub">신청서 작성 마지막 단계에서 아래 3가지를 첨부합니다. 미리 준비해 두시면 한 번에 끝낼 수 있습니다.</p>
+
+    <div class="doc">
+      <div class="num">1</div>
+      <div class="body">
+        <div class="t">사업자등록증</div>
+        <div class="d">신청서의 ‘사업개시일’에 등록증의 개업연월일을 그대로 입력합니다.</div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div class="num">2</div>
+      <div class="body">
+        <div class="t">부가가치세 과세표준증명원 <span style="font-weight:600;color:var(--muted);font-size:13px">(2025년 또는 2024년)</span></div>
+        <div class="d">홈택스에서 발급 가능합니다. ※ 업력 1년 미만 · 면세법인사업자 · 고유번호증 소유 기업은 제외</div>
+      </div>
+    </div>
+
+    <div class="doc key">
+      <div class="num">3</div>
+      <div class="body">
+        <div class="t">[붙임1] 신청서식 일체 <span class="badge">작성·서명 필요</span></div>
+        <ul class="forms">
+          <li>사업주 확인서 (서식 1-1)</li>
+          <li>개인정보 수집·이용 동의서 – 사업주용 (서식 3)</li>
+          <li>중소기업 지원사업 통합관리시스템 정보 활용 동의서 (서식 4)</li>
+        </ul>
+        <div class="dl">
+          <a class="btn btn-hwp" href="files/form1.hwp" download="[붙임1] 청년일자리도약장려금 신청서식.hwp">⬇ 한글(HWP)</a>
+          <a class="btn btn-doc" href="files/form1.docx" download="[붙임1] 청년일자리도약장려금 신청서식.docx">⬇ 워드(DOCX)</a>
+          <a class="btn btn-pdf" href="files/form1.pdf" download="[붙임1] 청년일자리도약장려금 신청서식.pdf">⬇ PDF (출력용)</a>
+        </div>
+        <div class="tip"><b>꼭 확인해 주세요</b> · 3개 서식 모두 <b>대표자 서명(또는 날인)</b> 후 스캔·촬영하여 첨부해 주세요. 누락 시 보완 요청으로 승인이 지연될 수 있습니다.</div>
+      </div>
+    </div>
+
+    <div class="note">📎 고용24 첨부 가능 파일: gif, jpg, jpeg, bmp, png, pdf 등 · 파일당 10MB 이하 · 최대 5개</div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section id="step2">
+    <span class="sec-label">STEP 2</span>
+    <h2>고용24 접속 · 로그인</h2>
+    <p class="sub">반드시 <strong>‘기업’ 탭에서 기업회원으로 로그인</strong>해 주세요.</p>
+    <ul class="check">
+      <li>고용24 상단 <strong>[기업]</strong> 탭 → 우측 상단 <strong>[로그인]</strong></li>
+      <li>메인 화면 <strong>[고용장려금]</strong> 탭 → <strong>[청년일자리 도약장려금]</strong> 선택</li>
+      <li><strong>[참여신청관리]</strong> 탭 하단의 <strong>[사업참여신청]</strong> 버튼 클릭</li>
+    </ul>
+    <a class="shot" href="guide-img/step-05.jpg" target="_blank" rel="noopener"><img src="guide-img/step-05.jpg" alt="고용24 기업 로그인 후 고용장려금 > 청년일자리도약장려금 > 참여신청관리 > 사업참여신청 화면" loading="lazy" width="1241" height="1675"></a>
+    <div class="shot-cap">이미지를 누르면 크게 볼 수 있습니다</div>
+    <div class="cta" style="margin-top:18px">
+      <a class="btn btn-main" href="https://www.work24.go.kr/cm/main.do?topArea=EBM00" target="_blank" rel="noopener">고용24 바로가기</a>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section id="step3">
+    <span class="sec-label">STEP 3</span>
+    <h2>참여신청서 작성</h2>
+    <p class="sub">신청서는 한 페이지로 이어져 있습니다. 아래 순서대로 입력해 주세요.</p>
+
+    <div class="step">
+      <h3>① 운영기관 선택 · 대표 사업장 등록</h3>
+      <ul class="check">
+        <li>담당 운영기관: <strong>[운영기관 검색] → ‘하이테커 강남지사’ 선택</strong></li>
+        <li>고용보험 사업장관리번호: <strong>[관리번호 검색]</strong> 클릭 → 조회된 관리번호 클릭</li>
+        <li>검색창의 ‘비수도권 산단입주기업’은 <em>체크하지 않습니다</em> (강남구는 수도권)</li>
+        <li>사업참여유형: 본사만 있으면 <strong>사업단위</strong> · 지사를 따로 신청·관리하려면 <strong>사업장단위</strong></li>
+        <li>지사도 함께 신청할 경우 ‘관련 사업장 현황’에서 <strong>[추가 +]</strong>로 지사 등록</li>
+      </ul>
+      <a class="shot" href="guide-img/step-06.jpg" target="_blank" rel="noopener"><img src="guide-img/step-06.jpg" alt="담당 운영기관 선택 및 고용보험 사업장관리번호 검색 화면" loading="lazy" width="1241" height="1675"></a>
+    </div>
+
+    <div class="step">
+      <h3>② 기준 피보험자 수 · 매출액 입력</h3>
+      <ul class="check">
+        <li>지원유형: <strong>수도권</strong> 체크</li>
+        <li>사업개시일: <strong>사업자등록증의 개업연월일</strong> 입력</li>
+        <li>매출액: 부가가치세 과세표준증명원의 <strong>‘계’ 금액 합계</strong> 입력</li>
+        <li>매출액 시작일 · 종료일: <strong>과세표준증명원의 과세기간과 동일하게</strong> 입력</li>
+      </ul>
+      <a class="shot" href="guide-img/step-07.jpg" target="_blank" rel="noopener"><img src="guide-img/step-07.jpg" alt="사업개시일, 매출액, 매출액 기간 입력 방법 안내" loading="lazy" width="1241" height="1675"></a>
+    </div>
+
+    <div class="step">
+      <h3>③ 기업 구분 · 채용계획 · 서류 첨부</h3>
+      <ul class="check">
+        <li>기업구분: 해당되는 항목 모두 체크 (일반적으로 <strong>우선지원대상기업</strong>)</li>
+        <li>채용계획 근무시간: <strong>주 28시간 이상</strong> · 월급여: <strong>최저임금 이상 ~ 450만원 이하</strong></li>
+        <li>신청일 직전 3개월 이내에 이미 채용한 청년이 있으면 ‘채용자 정보’에 체크 후 입력</li>
+        <li>첨부파일: <strong>STEP 1의 서류 3종</strong>을 [첨부파일 등록]으로 업로드 → <a href="#step1">서식 다시 받기</a></li>
+      </ul>
+      <a class="shot" href="guide-img/step-08.jpg" target="_blank" rel="noopener"><img src="guide-img/step-08.jpg" alt="기업구분, 채용계획, 담당자 정보, 첨부파일 등록 화면" loading="lazy" width="1241" height="1675"></a>
+    </div>
+
+    <div class="step">
+      <h3>④ 사업주 확인서 (화면 내 체크)</h3>
+      <ul class="check">
+        <li>지원제외 기업 ①~⑨: <strong>모두 ‘아니요’</strong></li>
+        <li>지원제외 청년 ①~⑪: <strong>모두 ‘확인’</strong></li>
+        <li>하단 확인 문구: <strong>‘예’</strong></li>
+      </ul>
+      <a class="shot" href="guide-img/step-09.jpg" target="_blank" rel="noopener"><img src="guide-img/step-09.jpg" alt="사업주 확인서 체크 방법" loading="lazy" width="1241" height="1675"></a>
+    </div>
+
+    <div class="step">
+      <h3>⑤ 개인정보 수집·이용 동의 후 제출</h3>
+      <ul class="check">
+        <li><strong>[전문보기]</strong> 클릭 → 대표자 성함 · 주민등록번호 입력 → <strong>[동의]</strong></li>
+        <li>‘동의합니다’ 선택 후 신청서 제출</li>
+      </ul>
+      <a class="shot" href="guide-img/step-10.jpg" target="_blank" rel="noopener"><img src="guide-img/step-10.jpg" alt="개인정보 수집 이용 동의서 작성 화면" loading="lazy" width="1241" height="1675"></a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 style="margin-top:0">준비가 끝나셨다면</h2>
+    <a class="btn btn-main" href="https://www.work24.go.kr/cm/main.do?topArea=EBM00" target="_blank" rel="noopener">고용24 신청하기</a>
+    <p>고용24 기업회원 로그인 후 신청 가능합니다</p>
+    <div class="links">
+      <a class="btn btn-ghost" href="files/guide.pdf" download="2026 청년일자리도약장려금 핵심안내.pdf">📄 핵심 안내 전체 PDF</a>
+      <a class="btn btn-ghost" href="faq.html">❓ 자주 묻는 질문(FAQ)</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="images/footer-logo.png" alt="하이테커 강남지사 · 이노비즈협회" style="display:block;width:280px;max-width:80%;height:auto;margin:0 auto 14px">
+    <p style="margin:0 0 4px"><b>(주)하이테커 강남지사</b> · 청년일자리도약장려금 운영기관</p>
+    <p style="margin:0">jump_work@kfo.or.kr · 02-6953-2313 (내선 4203) · 평일 09:00~18:00 (점심 12:00~13:00)</p>
+    <p style="margin:10px 0 0;font-size:12px">최종 지원 적격 여부 및 지급 결정은 고용센터에서 판단합니다.</p>
+  </div>
+</footer>
+</body>
+</html>
