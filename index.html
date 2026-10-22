@@ -197,6 +197,16 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
     .q-badge { width: 1.75rem; height: 1.75rem; font-size: 0.8rem; margin-right: 0.75rem; }
     .faq-question { padding: 1.25rem; }
 }
+
+/* 고정 신청 바 */
+.sticky-cta{position:fixed;left:0;right:0;z-index:50;transition:transform .3s ease,opacity .3s ease;opacity:0;pointer-events:none}
+.sticky-cta.show{opacity:1;pointer-events:auto}
+.sticky-top{top:0;transform:translateY(-100%)}
+.sticky-top.show{transform:translateY(0)}
+.sticky-bottom{bottom:0;transform:translateY(100%)}
+.sticky-bottom.show{transform:translateY(0)}
+@media (max-width:767px){ .sticky-top{display:none} body.has-bottom-bar{padding-bottom:76px} }
+@media (min-width:768px){ .sticky-bottom{display:none} }
     </style>
 </head>
 <body>
@@ -231,7 +241,7 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                     <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-orange-500 pl-4">지원 내용</h2>
                     <div class="space-y-6">
                         <div class="flex justify-between items-center bg-orange-50 p-6 rounded-2xl border border-orange-100">
-                            <span class="font-semibold text-orange-900 text-lg">채용 1인당 연 최대</span>
+                            <span class="font-semibold text-orange-900 text-lg">채용 1인당 최대</span>
                             <span class="text-3xl font-black text-orange-600">720만원</span>
                         </div>
                         <ul class="space-y-3 text-slate-600">
@@ -241,7 +251,9 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                         </ul>
                         <div class="pt-4 border-t border-dashed border-slate-200">
                             <p class="text-sm text-orange-500 font-semibold mb-1"><i class="fas fa-info-circle mr-1"></i> 근속 6개월 미만 퇴사 시 지원금 미지급</p>
-                            <p class="text-sm text-green-600 font-semibold"><i class="fas fa-info-circle mr-1"></i> 지원 한도 : 기준 피보험자 수의 50% </p>
+                            <p class="text-sm text-red-500 font-semibold mb-1 keep-all"><i class="fas fa-triangle-exclamation mr-1"></i> 채용 3개월 전 ~ 채용 후 1년 사이 권고사직·해고 등 고용조정 발생 시 지원 중단</p>
+                            <p class="text-sm text-green-600 font-semibold keep-all"><i class="fas fa-info-circle mr-1"></i> 지원 한도 : 기준 피보험자 수의 50% <span class="text-slate-400 font-normal">(예: 직원 10명 기업 → 청년 최대 5명)</span></p>
+                            <p class="text-sm text-blue-600 font-semibold mt-1 keep-all"><i class="fas fa-info-circle mr-1"></i> 참여 신청 이전 3개월 이내에 채용한 청년도 지원 가능</p>
                         </div>
                     </div>
                 </section>
@@ -249,9 +261,11 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                 <section class="bg-white rounded-3xl shadow-sm p-8 border border-slate-100">
                     <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-orange-500 pl-4">기업 지원 요건</h2>
                     <ul class="check-list text-slate-700 mb-6">
-                        <li>서울 강남구 소재 기업</li>
+                        <li>서울 강남구 소재 <b class="text-slate-900">우선지원대상기업</b>
+                            <span class="block text-xs text-slate-400 font-normal mt-1 keep-all">※ 중소기업에서 성장한 중견기업도 유예기간(5년) 내라면 우선지원대상기업에 해당할 수 있습니다</span></li>
                         <li>직전 1년 평균 피보험자 수 5인 이상</li>
-                        <li>2024 or 2025년 연 매출액 기준 충족 <br> <span class="text-xs text-slate-400 font-normal">(기준피보험자수 × 1,900만원 이상)</span></li>
+                        <li>2024년 또는 2025년 연 매출액 기준 충족 <br> <span class="text-xs text-slate-400 font-normal">(기준피보험자수 × 1,900만원 이상)</span>
+                            <span class="block mt-2 text-xs text-orange-700 font-semibold bg-orange-50 rounded-lg px-3 py-2 keep-all"><i class="fas fa-circle-exclamation mr-1"></i>매출액 요건 제외 : 업력 1년 미만 · 면세법인사업자 · 고유번호증 소유 기업</span></li>
 
                     </ul>
                     <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
@@ -357,23 +371,6 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                 </div>
             </section>
 
-            <!-- 사전신청 버튼  -->
-            <section class="flex flex-col items-center justify-center space-y-6 py-10">
-                <div class="text-center space-y-2">
-                    <p class="text-slate-800 font-black text-xl md:text-2xl italic">"지금 바로 신청하세요!"</p>
-                    <p class="text-slate-500 font-medium">담당자 확인 후 순차적으로 안내 드리겠습니다</p>
-                </div>
-
-                <a id="apply-form-btn" href="https://forms.gle/M7Vakm7vTLzc253f8" target="_blank" rel="noopener" class="cta-button w-full max-w-[600px] text-center text-white py-6 md:py-8 px-12 rounded-2xl font-black text-2xl md:text-3xl flex items-center justify-center gap-4 group">
-                    <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-                    사업 참여 사전신청 하기
-                </a>
-
-                <p class="text-sm text-slate-400 font-medium flex items-center gap-2">
-                    <i class="fas fa-clock"></i> 평균 소요 시간: 약 1분
-                </p>
-            </section>
-
             <!-- 프로세스 안내 -->
             <section class="space-y-10">
                 <div class="text-center">
@@ -384,7 +381,7 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                     <div class="step-card">
                         <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
                         <h3 class="font-bold text-lg mb-2 text-slate-800">참여 신청</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">운영기관 '하이테커 강남지사' 지정<br>고용24 온라인 신청</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">운영기관 '하이테커 강남지사' 지정<br>고용24 온라인 신청 <a href="guide.html" target="_blank" rel="noopener" class="text-orange-600 font-semibold underline">(신청 가이드)</a></p>
                     </div>
                     <div class="arrow-box">
                         <i class="fas fa-chevron-right"></i>
@@ -392,7 +389,7 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                     <div class="step-card">
                         <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
                         <h3 class="font-bold text-lg mb-2 text-slate-800">청년 채용</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">지원 대상 청년 채용 및<br>명단 전산 제출 </p>
+                        <p class="text-slate-500 text-sm leading-relaxed">지원 대상 청년 정규직 채용 후<br>고용24에 채용자 명단 등록</p>
                     </div>
                     <div class="arrow-box">
                         <i class="fas fa-chevron-right"></i>
@@ -405,6 +402,21 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                 </div>
             </section>
 
+            <!-- 신청 버튼 -->
+            <section class="flex flex-col items-center justify-center space-y-6 py-10">
+                <div class="text-center space-y-2">
+                    <p class="text-slate-800 font-black text-xl md:text-2xl italic">"준비되셨다면 지금 바로 신청하세요!"</p>
+                    <p class="text-slate-500 font-medium keep-all">고용24에서 신청하실 때 담당 운영기관은 <b class="text-orange-600">[하이테커 강남지사]</b>로 선택해 주세요</p>
+                </div>
+
+                <a id="guide-btn" href="guide.html" target="_blank" rel="noopener" class="cta-button w-full max-w-[600px] text-center text-white py-6 md:py-8 px-8 rounded-2xl font-black text-xl md:text-3xl flex items-center justify-center gap-4 group keep-all">
+                    <i class="fas fa-file-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
+                    고용24 신청 방법 보기 · 서식 다운로드
+                </a>
+
+                <p class="text-sm text-slate-400 font-medium keep-all text-center"><i class="fas fa-hourglass-half mr-1"></i> 지역별 예산 소진 시 조기 마감될 수 있습니다</p>
+            </section>
+
             <!-- 문의 섹션 -->
             <section class="bg-orange-50 rounded-3xl p-10 border border-orange-200 shadow-inner overflow-hidden relative">
                 <div class="absolute -right-10 -bottom-10 opacity-5 transform rotate-12">
@@ -412,16 +424,16 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                 </div>
                 <div class="relative z-10 text-center space-y-8">
                     <div class="space-y-2">
-                        <h2 class="text-3xl font-black text-orange-900 tracking-tight">참여 문의 및 기술 지원</h2>
+                        <h2 class="text-3xl font-black text-orange-900 tracking-tight">참여 문의</h2>
                         <p class="text-orange-700/80 font-medium">사업 참여가 처음이신가요? 궁금한 점을 지금 바로 해결해 보세요.</p>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-6 items-stretch">
+                    <div class="grid md:grid-cols-3 gap-6 items-stretch">
                         <!-- FAQ 이동 버튼 (새 창) -->
                         <div class="bg-white p-8 rounded-3xl shadow-sm border border-orange-100 flex flex-col items-center justify-center">
                             <i class="fas fa-question-circle text-4xl text-orange-500 mb-4"></i>
-                            <h3 class="text-xl font-bold text-slate-800 mb-4">이미 많은 분들이 물어보셨어요!</h3>
-                            <a href="faq.html" target="_blank" rel="noopener" id="faq-link-btn" class="bg-orange-600 hover:bg-orange-700 text-white text-xl font-bold py-4 px-10 rounded-2xl shadow-lg transition-all transform hover:-translate-y-1 w-full text-center">
+                            <h3 class="text-xl font-bold text-slate-800 mb-4 keep-all">자주 묻는 질문 확인</h3>
+                            <a href="faq.html" target="_blank" rel="noopener" id="faq-link-btn" class="bg-orange-600 hover:bg-orange-700 text-white text-lg font-bold py-4 px-6 rounded-2xl shadow-lg transition-all transform hover:-translate-y-1 w-full text-center">
                                 자주 묻는 질문(FAQ) 보러가기
                             </a>
                         </div>
@@ -429,13 +441,23 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
                         <!-- 연락처 안내 -->
                         <div class="bg-white p-8 rounded-3xl shadow-sm border border-orange-100 flex flex-col items-center justify-center">
                             <i class="fas fa-phone-alt text-4xl text-orange-500 mb-4"></i>
-                            <h3 class="text-xl font-bold text-slate-800 mb-4">전화 상담 및 이메일 문의</h3>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">전화 · 이메일 문의</h3>
                             <div class="space-y-2 text-center">
-                                <p class="text-slate-500 font-semibold tracking-wide text-lg" style="color: rgb(245, 70, 6);"><a href="mailto:jump_work@kfo.or.kr" style="color: inherit; text-decoration: none;"><span style="font-size: 24px;">jump_work@kfo.or.kr</span></a></p>
+                                <p class="text-slate-500 font-semibold tracking-wide text-lg" style="color: rgb(245, 70, 6);"><a href="mailto:jump_work@kfo.or.kr" style="color: inherit; text-decoration: none;"><span style="font-size: 19px;">jump_work@kfo.or.kr</span></a></p>
                                 <p class="text-slate-500 font-semibold tracking-wide text-lg">
                                     <a href="tel:0269532313" class="hover:text-orange-600 transition-colors">02-6953-2313</a> <font color="#cbd5e1">|</font> <a href="tel:0269534203" class="hover:text-orange-600 transition-colors">02-6953-4203</a>
                                 </p>
                             </div>
+                        </div>
+
+                        <!-- 담당자 연락받기 (구글폼) -->
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-orange-100 flex flex-col items-center justify-center">
+                            <i class="fas fa-paper-plane text-4xl text-orange-500 mb-4"></i>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">담당자 연락받기</h3>
+                            <p class="text-sm text-slate-500 mb-4 keep-all">연락처를 남겨 주시면 참여 가능 여부와 신청 방법을 안내해 드립니다</p>
+                            <a id="apply-form-btn" href="https://forms.gle/M7Vakm7vTLzc253f8" target="_blank" rel="noopener" class="bg-white hover:bg-orange-50 text-orange-600 border-2 border-orange-500 text-lg font-bold py-3 px-6 rounded-2xl transition-colors w-full text-center">
+                                연락받기 신청 <span class="text-xs font-medium text-orange-400">(약 1분)</span>
+                            </a>
                         </div>
                     </div>
 
@@ -457,6 +479,34 @@ th { background-color: #fff7ed; color: #9a3412; font-weight: 700; }
             </div>
         </footer>
     </div>
+
+    <!-- 고정 신청 바 (PC: 상단 / 모바일: 하단) -->
+    <div id="stickyTop" class="sticky-cta sticky-top bg-white/95 backdrop-blur border-b border-orange-100 shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <p class="font-bold text-slate-800 truncate">2026 청년일자리도약장려금 <span class="text-orange-600 font-black ml-1">1인당 최대 720만원</span></p>
+            <div class="flex gap-2 shrink-0">
+                <a href="guide.html" target="_blank" rel="noopener" class="cta-button text-white font-bold py-2 px-5 rounded-xl text-sm"><i class="fas fa-file-arrow-down mr-1"></i>고용24 신청 방법</a>
+                <a href="https://forms.gle/M7Vakm7vTLzc253f8" target="_blank" rel="noopener" class="bg-white border-2 border-orange-500 text-orange-600 hover:bg-orange-50 font-bold py-1.5 px-4 rounded-xl text-sm transition-colors"><i class="fas fa-paper-plane mr-1"></i>담당자 연락받기</a>
+            </div>
+        </div>
+    </div>
+    <div id="stickyBottom" class="sticky-cta sticky-bottom bg-white border-t border-orange-100 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+        <div class="px-3 py-3 flex gap-2">
+            <a href="guide.html" target="_blank" rel="noopener" class="cta-button flex-[3] text-white font-bold py-3 rounded-xl text-center text-[15px]"><i class="fas fa-file-arrow-down mr-1"></i>고용24 신청 방법</a>
+            <a href="https://forms.gle/M7Vakm7vTLzc253f8" target="_blank" rel="noopener" class="flex-[2] bg-white border-2 border-orange-500 text-orange-600 font-bold py-2.5 rounded-xl text-center text-[15px]">연락받기</a>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var hero=document.querySelector('header'), top=document.getElementById('stickyTop'), bot=document.getElementById('stickyBottom');
+        function update(){
+            var past = hero.getBoundingClientRect().bottom < 0;
+            [top,bot].forEach(function(el){ el.classList.toggle('show', past); });
+            document.body.classList.toggle('has-bottom-bar', past);
+        }
+        window.addEventListener('scroll', update, {passive:true}); window.addEventListener('resize', update); update();
+    })();
+    </script>
 
 </body>
 </html>
